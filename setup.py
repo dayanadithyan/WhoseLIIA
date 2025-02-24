@@ -1,10 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
-setup(
-    name="stylometry-dh",
-    version="0.1.0",
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
-    install_requires=open("requirements.txt").read().splitlines(),
-    python_requires=">=3.9",
-)
+if __name__ == "__main__":
+    setup()

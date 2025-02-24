@@ -1,5 +1,5 @@
 import pytest
-from src.stylometry.analyzer import StylometryAnalyzer
+from stylometry.analyzer import StylometryAnalyzer
 
 SAMPLE_TEXT = """
 The quick brown fox jumps over the lazy dog. This sentence contains all letters 
