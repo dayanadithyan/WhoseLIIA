@@ -2,6 +2,7 @@
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![CI Status](https://github.com/dayanadithyan/stylometry-dh/actions/workflows/python-ci.yml/badge.svg)
 
 A Python package for analyzing writing style through quantitative metrics.
 
