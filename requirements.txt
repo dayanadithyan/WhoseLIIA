@@ -128,7 +128,7 @@ spacy-loggers==1.0.5
 srsly==2.4.8
 stack-data==0.6.3
 streamlit==1.41.1
--e git+https://github.com/dayanadithyan/stylometry-dh.git@a01765da8d491167af3880e2184b643b41e17a67#egg=stylometry_dh
+-e git+https://github.com/dayanadithyan/stylometry-dh.git@9c66c534fcdde33ef787a736d98eba94e437202f#egg=stylometry_dh
 sympy==1.13.2
 tenacity==9.0.0
 textacy==0.13.0
