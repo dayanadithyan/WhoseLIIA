@@ -1,12 +1,11 @@
 # src/stylometry/analyzer.py
 from pathlib import Path
 from collections import Counter
-import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 import pandas as pd
 import matplotlib.pyplot as plt
-
-nltk.download('punkt', quiet=True)
+import nltk
+nltk.download('punkt')
 
 class StylometryAnalyzer:
     def __init__(self, text: str):
