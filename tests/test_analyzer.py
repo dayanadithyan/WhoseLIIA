@@ -1,5 +1,6 @@
 import nltk
 nltk.download('punkt')
+nltk.download('punkt_tab')
 from stylometry.analyzer import StylometryAnalyzer
 
 def test_analyzer_initialization():
