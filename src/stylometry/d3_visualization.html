@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Stylometry Analysis D3 Visualization</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .bar {
+            fill: steelblue;
+        }
+
+        .bar:hover {
+            fill: darkorange;
+        }
+
+        .axis text {
+            font-size: 12px;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Most Common Words Bar Chart</h1>
+    <svg width="800" height="500"></svg>
+
+    <script>
+        // Load the exported D3 data (make sure d3_data.json is in the same directory)
+        d3.json("output/d3_data.json").then(function (data) {
+            // Extract data for the most common words
+            let wordData = [];
+            for (let word in data.most_common_words) {
+                wordData.push({ word: word, count: +data.most_common_words[word] });
+            }
+
+            // Sort data by count descending
+            wordData.sort((a, b) => b.count - a.count);
+
+            const svg = d3.select("svg");
+            const margin = { top: 20, right: 30, bottom: 50, left: 60 },
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom;
+
+            const g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            const x = d3.scaleBand()
+                .domain(wordData.map(d => d.word))
+                .range([0, width])
+                .padding(0.1);
+
+            const y = d3.scaleLinear()
+                .domain([0, d3.max(wordData, d => d.count)])
+                .nice()
+                .range([height, 0]);
+
+            g.append("g")
+                .attr("class", "axis x-axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x))
+                .selectAll("text")
+                .attr("dx", "-0.8em")
+                .attr("dy", "0.15em")
+                .attr("transform", "rotate(-45)")
+                .style("text-anchor", "end");
+
+            g.append("g")
+                .attr("class", "axis y-axis")
+                .call(d3.axisLeft(y));
+
+            g.selectAll(".bar")
+                .data(wordData)
+                .enter().append("rect")
+                .attr("class", "bar")
+                .attr("x", d => x(d.word))
+                .attr("y", d => y(d.count))
+                .attr("width", x.bandwidth())
+                .attr("height", d => height - y(d.count));
+
+            // Add labels on top of bars
+            g.selectAll(".label")
+                .data(wordData)
+                .enter().append("text")
+                .attr("class", "label")
+                .attr("x", d => x(d.word) + x.bandwidth() / 2)
+                .attr("y", d => y(d.count) - 5)
+                .attr("text-anchor", "middle")
+                .text(d => d.count);
+
+        }).catch(function (error) {
+            console.error("Error loading the data: ", error);
+        });
+    </script>
+</body>
+
+</html>
