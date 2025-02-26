@@ -1,3 +1,5 @@
+import nltk
+nltk.download('punkt')
 from stylometry.analyzer import StylometryAnalyzer
 
 def test_analyzer_initialization():
