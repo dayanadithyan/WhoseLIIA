@@ -6,6 +6,8 @@
 
 A Python package for analyzing writing style through quantitative metrics.
 
+Please read: This is still in alpha. Analytics are fine but a ways to go before releasing a functional library.
+
 ## Features
 
 - Word length analysis
