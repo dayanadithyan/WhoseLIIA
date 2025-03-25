@@ -12,44 +12,44 @@ Update 2/27: First features working at basic level
 ![image](https://github.com/user-attachments/assets/f826b33a-6858-4204-9e58-8a33d802001d)
 
 
-## Features
+Update 3/26: Revision to methodology. What worked, what didn't, and what next
 
-- Word length analysis
-- Type-Token Ratio (TTR)
-- Hapax Legomena
-- Flesch-Kincaid Readability
-- Batch processing of text files
-- Data visualization
+# Stylometry Analysis Framework
 
-## Installation
+Focusing now on grammatical structures rather than traditional word frequency analysis.
 
-```bash
-git clone https://github.com/dayanadithyan/stylometry-dh.git
-cd stylometry-dh
-pip install -r requirements.txt
-```
+## Next steps (March, 2025)
 
-## Structure
+When applied to Milton's Paradise Lost, the framework reveals:
 
-```markdown
-stylometry-dh/
-├── .github/
-│   └── workflows/
-│       └── tests.yml
-├── data/                   
-├── examples/
-│   ├── analysis_demo.ipynb
-│   └── word_length_hist.png
-├── src/
-│   └── stylometry/
-│       ├── __init__.py
-│       └── analyzer.py
-├── tests/
-│   └── test_analyzer.py
-├── .gitignore
-├── CONTRIBUTING.md
-├── LICENSE
-├── README.md
-├── requirements.txt
-└── setup.py
-```
+1. Significantly higher use of periodic sentences compared to his prose work Areopagitica (19.0% vs 10.7%)
+2. Strategic deployment of periodic style for narrative emphasis and thematic development
+3. Variations in periodic sentence usage across different books, with notable decreases in Books 1 and 7
+4. Presence of distinctive Latinate constructions such as ablative absolutes
+5. Complex sentence structures that challenge both human readers and computational tools
+
+## Next steps: Focus on how to identify biblical reference before coding. We'll start with Blood Meridian, difficult, but if done right, easier on Milton
+
+## Proposed structure (WIP)
+
+| **Biblical Reference Category** | **Sub-category**       | **Description**                                                              | **NLP Technique**                                                                                                       |
+|-----------------------------------|------------------------|------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| **Direct Quotations**             | With attribution       | Explicitly identified as biblical                                            | Pattern Matching & Named Entity Recognition (NER)                                                                     |
+|                                   | Without attribution    | Implicit biblical knowledge assumed                                          | Text Similarity Analysis                                                                                                |
+| **Paraphrases**                   | Close paraphrase       | Maintaining most semantic content                                            | Semantic Similarity Metrics (e.g., cosine similarity on embeddings)                                                     |
+|                                   | Loose paraphrase       | Preserving core meaning with significant reformulation                       | Paraphrase Detection Algorithms combined with Topic Modeling                                                          |
+| **Allusions**                     | Nominal allusions      | References to biblical names, places, events                                 | Named Entity Recognition (NER) to extract proper nouns and link them to biblical contexts                               |
+|                                   | Verbal allusions       | Echoes of distinctive biblical phrasing                                      | Keyphrase Extraction and Text Pattern Matching                                                                        |
+|                                   | Thematic allusions     | Invocation of biblical themes or motifs                                      | Topic Modeling (e.g., LDA)                                                                                               |
+| **Inversions**                    | Moral inversions       | Biblical moral principles deliberately reversed                              | Sentiment Analysis and Contrastive Learning                                                                            |
+|                                   | Narrative inversions   | Biblical story patterns upended                                              | Sequence Modeling (e.g., RNNs or Transformers)                                                                         |
+|                                   | Character inversions   | Biblical figures recast in antithetical roles                                | Entity Sentiment & Role Analysis                                                                                       |
+| **Structural Adaptations**        | Syntactic mimicry      | Sentence structures that echo biblical cadences                              | Syntactic Parsing (using dependency or constituency parsers)                                                           |
+|                                   | Rhetorical patterns    | Use of biblical rhetorical devices                                           | Discourse Analysis                                                                                                     |
+|                                   | Narrative frameworks   | Episode structures that parallel biblical narratives                         | Narrative Segmentation and Sequence Analysis                                                                           |
+| **Philosophical Engagement**      | Epistemological challenges | Questioning biblical claims to truth                                      | Argument Mining                                                                                                        |
+|                                   | Ethical critiques      | Challenging biblical moral frameworks                                        | Sentiment and Stance Detection                                                                                         |
+|                                   | Ontological explorations | Engaging with biblical concepts of being                                   | Concept Extraction and Ontology-Based Modeling                                                                         |
+| **Apocalyptic Imagery**           | End-times references   | Imagery from Revelation and other apocalyptic texts                          | Image and Metaphor Detection using Semantic Role Labeling                                                              |
+|                                   | Judgment imagery       | Scenes that evoke divine judgment                                            | Sentiment Analysis combined with Imagery Recognition                                                                   |
+|                                   | Cosmic warfare         | Depictions that echo biblical spiritual conflict                             | Event Extraction and Thematic Analysis                                                                                 |
